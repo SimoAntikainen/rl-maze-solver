@@ -1,0 +1,12 @@
+num_iterations=10
+alpha=0.1
+gamma=0.9
+png_filename=png/pics/50x50_2.png
+read_q=false
+q_readfile=qmatrix.txt
+save_q=false
+q_filename=qmatrix.txt
+set_start=true
+start_state=0
+keep_learning=false
+num_new_iterations=50

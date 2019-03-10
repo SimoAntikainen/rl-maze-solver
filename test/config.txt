@@ -1,0 +1,12 @@
+num_iterations=10
+alpha=1
+gamma=0
+png_filename=4x4.png
+read_q=true
+q_readfile=load.txt
+save_q=true
+q_filename=save.txt
+set_start=true
+start_state=0
+keep_learning=false
+num_new_iterations=25

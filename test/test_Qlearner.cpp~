@@ -1,0 +1,56 @@
+#include <gtest/gtest.h>
+#include "../src/Qlearner.hpp"
+
+TEST(test_Qlearner,test_constuctors){
+
+  Qlearner q= Qlearner();
+  q.fillR({{0,0},{-1,100}});
+  q.fillQ({{0,0,-1,100},{0,0,-1,100},{-1,-1,-1,-1},{0,0,-1,100}});
+  q.initParameter(0.1,0.9,4,3);
+  q.initBlocked({2});
+
+  EXPEXT_EQ(q.alphaOut(),0.1);
+  EXPEXT_EQ(q.gammaOut(),0.9);
+  EXPEXT_EQ(q.statesOut(),4);
+  EXPEXT_EQ(q.endStateOut(),3);
+  EXPEXT_EQ(q.vlockedOut(),{2});
+  EXPEXT_EQ(q.outQ(),{{0,0,-1,100},{0,0,-1,100},{-1,-1,-1,-1},{0,0,-1,100}});
+  EXPEXT_EQ(q.outR(),{{0,0},{-1,100}});
+  Qlearner q2= Qlearner(&q);
+  EXPEXT_EQ(q2.alphaOut(),0.1);
+  EXPEXT_EQ(q2.gammaOut(),0.9);
+  EXPEXT_EQ(q2.statesOut(),4);
+  EXPEXT_EQ(q2.endStateOut(),3);
+  EXPEXT_EQ(q2.vlockedOut(),{2});
+  EXPEXT_EQ(q2.outQ(),{{0,0,-1,100},{0,0,-1,100},{-1,-1,-1,-1},{0,0,-1,100}});
+  EXPEXT_EQ(q2.outR(),{{0,0},{-1,100}});
+}
+
+TEST(test_Qlearner,test_funktions){
+
+  Qlearner q= Qlearner();
+  q.fillR({{0,0,-1,100},{0,0,-1,100},{-1,-1,-1,-1},{0,0,-1,100}});
+  q.fillQ({{0,0,-1,100},{0,0,-1,100},{-1,-1,-1,-1},{0,0,-1,100}});
+  q.initParameter(0.1,0.9,4,3);
+  q.initBlocked({2});
+  
+  EXPEXT_EQ();
+  EXPEXT_EQ();
+  EXPEXT_EQ();
+  EXPEXT_EQ();
+  EXPEXT_EQ();
+  EXPEXT_EQ();
+  EXPEXT_EQ();
+  EXPEXT_EQ();
+  EXPEXT_EQ();
+  EXPEXT_EQ();
+  EXPEXT_EQ();
+  EXPEXT_EQ();
+  EXPEXT_EQ();
+  EXPEXT_EQ();
+  EXPEXT_EQ();
+  EXPEXT_EQ();
+  EXPEXT_EQ();
+  
+  
+  

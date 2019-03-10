@@ -1,0 +1,17 @@
+#include <gtest/gtest.h>
+#include "../src/QMatrix.hpp"
+#include <iostream>
+
+TEST(test_QMatrix, test_constuctor){
+  QMatrix Q=QMatrix();
+  EXPECT_EQ(Q.getStartState(),0);
+  EXPECT_EQ(Q.getWidth(),4);
+  EXPECT_EQ(Q.getHeight(),4);
+  EXPECT_EQ(Q.getCountOfPixels(),16);
+  EXPECT_EQ(Q.getFinishingPoint(),15);
+  EXPECT_EQ(Q.getBlocked(),{5,6,9,13});
+  EXPECT_EQ(Q.getPixels(),{{0,0,0,0},{0,-1,-1,0},{0,-1,0,0},{0,-1,0,100}});
+
+  Q={{0,0,0,0},{-1,-1,-1,-1}};
+  EXPECT_EQ(getQMatrix(),{{0,0,0,0},{-1,-1,-1,-1}});
+}
