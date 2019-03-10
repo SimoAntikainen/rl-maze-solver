@@ -1,4 +1,7 @@
 # Q-learning-8 build instructions
+
+C++ course project, visualizes iterative maze solving with Q-learning reinforment learning technique. 
+
 From command line navigate to q-learner-8 ‘/src’ folder. From there type into command line ‘make’. This will create an executable called 'learner'. To run this, type './learner'.
 
 To delete .o-files type ‘make clean’.
