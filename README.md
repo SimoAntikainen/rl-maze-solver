@@ -1,63 +1,57 @@
-# Q-learning-8 build instructions
+# Q-learning Maze solver 
 
-C++ course project, visualizes iterative maze solving with Q-learning reinforment learning technique. 
+This C++ project visualizes iterative maze solving using the Q-learning reinforcement learning technique.
 
-From command line navigate to q-learner-8 ‘/src’ folder. From there type into command line ‘make’. This will create an executable called 'learner'. To run this, type './learner'.
+## Building the Project
 
-To delete .o-files type ‘make clean’.
+1. Navigate to the `/src` folder in the q-learner-8 directory.
+2. Run `make` to create the executable called 'learner'.
+3. Execute the program by running `./learner`.
+4. To clean up object files, use `make clean`.
 
-NOTE: this requires the 2.3.2 SFML-library, which is installed in the default install directory!
+**Note**: This project requires SFML library version 2.3.2 installed in the default directory.
 
-## Q-learning-8 build test
-From command line navigate to q-learner-8 ‘/test’ folder. From there type into command line ‘make run’. To delete .o-files type ‘make clean’.
+## Running Tests
 
-For Valgrind test navigate to q-learner-8 ‘/src’ folder. From there type into command line  ‘make valgrind’.
+### Unit Tests
+1. Navigate to the `/test` folder in the q-learner-8 directory.
+2. Run `make run` to execute the tests.
+3. Use `make clean` to remove object files.
 
-## Manual:
+### Valgrind Test
+1. Navigate to the `/src` folder.
+2. Run `make valgrind` to perform the Valgrind test.
 
-First, it takes a while to open the window, as a pre-defined number of calculations are done already. You can follow the progress in the command line. 
+## User Manual
 
-Once the window opens, you can see the calculated optimal route after the initial calculations from a pre-defined starting point. 
+1. Upon launching, the program performs pre-defined calculations. Progress can be monitored in the command line.
+2. Once the window opens, it displays the calculated optimal route from a pre-defined starting point.
+3. Close the window using the 'x' button in the top-left corner.
 
-You can close the window by pressing the 'x' button on top-left corner (the default button for closing a window).
+### Button Functionalities
 
-
-## Descriptions for different buttons:
-
-'Reset': This resets all generations on the window to start from their starting points. No learning or calculations is included in this function.
-
-'New Gen': This will calculate a pre-defined number of new iterations. The calculation process can be seen in command line. Once the calculations are finished, a new generation will appear on the screen.
-
-'Learn': This will give the latest Q-matrix to all generations that are currently running on the screen, i.e haven't reached the goal state yet. The calculations might take a while, so the visualization is stopped meanwhile. Note, that this will set the generations' starting point to the point where 'Learn' was pressed: if you press 'Reset' afterwards, the routes will reset from this point, not the original starting point!
-
-## Config file
-
-There are many options, which haven't been implemented in the graphics window, but have been implemented in the 'config.txt' file. Here are the descriptions for each variable:
-
-num_iterations=10 : The number of iterations to be calculated *before* the window is opened
-
-alpha=0.1 : Qlearning variable. "The learning rate, set between 0 and 1. Setting it to 0 means that the Q-values are never updated, hence nothing is learned. Setting a high value such as 0.9 means that learning can occur quickly"
-
-gamma=0.9 : Qlearning variable. "Discount factor, also set between 0 and 1. This models the fact that future rewards are worth less than immediate rewards. Mathematically, the discount factor needs to be set less than 0 for the algorithm to converge."
-
-png_filename=png/pics/50x50_2.png : The picture to be used as the map. There are many different maps in the 'pics' folder (/src/png/pics).
-
-read_q=false : true, if you want to load a previous Q-matrix from a file. false, if not
-
-q_readfile=qmatrix.txt : if read_q=true, the file which the Q-matrix is loaded from
-
-save_q=false : true, if you want to save the learning process when you close the window. false, if not
-
-q_filename=qmatrix.txt : if save_q = true, the file which the Q-matrix will be saved in
-
-set_start=true : true, if you want to set your own starting point. If this is false, the starting point will be random
-
-start_state=0 : if set_start = true, then this will be the starting point. Note, that this is a single value, not coordinates. The values start from the top-left corner and increase horizontally to the right.
-
-keep_learning=false : if read_q = true, and this is false, then, when opening the program, the initial calculations are skipped
-
-num_new_iterations=50 : when 'New Gen'-button is pressed, this number determines the number of iterations to be calculated.
-
-Source for alpha and gamma: http://www.cse.unsw.edu.au/~cs9417ml/RL1/algorithms.html
+- **Reset**: Resets all generations to their starting points without additional learning or calculations.
+- **New Gen**: Calculates a pre-defined number of new iterations. Progress is visible in the command line.
+- **Learn**: This will give the latest Q-matrix to all generations that are currently running on the screen, i.e haven't reached the goal state yet. The calculations might take a while, so the visualization is stopped meanwhile. Note, that this will set the generations' starting point to the point where 'Learn' was pressed: if you press 'Reset' afterwards, the routes will reset from this point, not the original starting point!
 
 
+## Configuration
+
+The `config.txt` file allows customization of various parameters:
+
+| Parameter | Description |
+|-----------|-------------|
+| `num_iterations=10` | Number of iterations calculated before window opening |
+| `alpha=0.1` | Learning rate (0-1). Setting it to 0 means that the Q-values are never updated, hence nothing is learned. Setting a high value such as 0.9 means that learning can occur quickly" |
+| `gamma=0.9` | Discount factor (0-1). This models the fact that future rewards are worth less than immediate rewards. Mathematically, the discount factor needs to be set less than 0 for the algorithm to converge |
+| `png_filename=png/pics/50x50_2.png` | Map file path.  There are many different maps in the 'pics' folder (/src/png/pics) |
+| `read_q=false` | Enable/disable loading previous Q-matrix |
+| `q_readfile=qmatrix.txt` | File to load Q-matrix from |
+| `save_q=false` | Enable/disable saving Q-matrix on exit |
+| `q_filename=qmatrix.txt` | File to save Q-matrix to |
+| `set_start=true` | Enable/disable custom starting point |
+| `start_state=0` | Starting point value (if `set_start` is true). Note, that this is a single value, not coordinates. The values start from the top-left corner and increase horizontally to the right. |
+| `keep_learning=false` | Continue learning if loading previous Q-matrix |
+| `num_new_iterations=50` | Iterations calculated when "New Gen" is pressed |
+
+For detailed explanations of `alpha` and `gamma`, refer to: [Reinforcement Learning Algorithms](http://www.cse.unsw.edu.au/~cs9417ml/RL1/algorithms.html)
